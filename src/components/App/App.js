@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import FeelingsPage from '../../Pages/FeelingsPage/FeelingsPage';
 
 class App extends Component {
   render() {
@@ -11,6 +13,10 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
+        <Router>
+          
+            <Route exact path="/" Component={FeelingsPage} />
+        </Router>
       </div>
     );
   }
