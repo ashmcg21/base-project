@@ -14,20 +14,38 @@ const FeelingsReducer = (state = 'feelings', action) => {
     }
 
     return state;
-}
+};
 
-const SummaryReducer = (state = [], action) => {
-    if(action.type === "ADD_FEEDBACK") {
+const contentReducer = (state = [], action) => {
+    if(action.type === "UNDERSTOOD_CONTENT") {
+        return action.payload;
+    }
+
+    return state;
+};
+
+const supportReducer = (state = [], action) => {
+    if(action.type === "UNDERSTOOD_CONTENT") {
         return [...state, action.payload];
     }
 
     return state;
-}
+};
+
+const SummaryReducer = (state = [], action) => {
+    if(action.type === "ADD_FEEDBACK") {
+        return action.payload;
+    }
+
+    return state;
+};
 
 
 const storeInstance = createStore(
     combineReducers({
         FeelingsReducer,
+        contentReducer,
+        supportReducer,
         SummaryReducer,
     }),
     applyMiddleware(logger)

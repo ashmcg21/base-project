@@ -4,6 +4,17 @@ import { connect } from 'react-redux';
 
 class ContentPage extends Component {
 
+    state = {
+        content: ""
+    }
+
+    onInput =(input) => (event) =>{
+        this.setState({
+            [input]: event.target.value
+        });
+    }
+
+
     onTypeClick = (feedback) => (event) => {
         console.log(feedback);
         this.props.dispatch({type: "UNDERSTOOD_DAY", payload: feedback});
@@ -13,8 +24,8 @@ class ContentPage extends Component {
         return(
         <div>
             <h1>How Well Did You Understand The Material?</h1>
-            <input></input>
-            <button onClick={this.onTypeClick('feelings')}>SUBMIT</button>
+            <input type='number' onChange={this.onInput('content')}></input>
+            <button onClick={this.onTypeClick('content')}>NEXT</button>
         </div>
         );
     }

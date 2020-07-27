@@ -7,6 +7,7 @@ import CommentsPage from '../Pages/CommentsPage';
 import SupportPage from '../Pages/SupportPage';
 import ContentPage from '../Pages/ContentPage';
 import SummaryPage from '../Pages/SummaryPage';
+import FeedbackPage from '../Pages/FeedbackPage';
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
         </header>
         <br/>
         <Router>
-          
+            <Route exact path="/feedbackform" component={FeedbackPage} />
             <Route exact path="/" component={FeelingsPage} />
             <Route exact path="/comments" component={CommentsPage} />
             <Route exact path="/support" component={SupportPage} />

@@ -4,6 +4,16 @@ import { connect } from 'react-redux';
 
 class CommentsPage extends Component {
 
+    state = {
+        comments: ""
+    }
+
+    onInput =(input) => (event) =>{
+        this.setState({
+            [input]: event.target.value
+        });
+    }
+
     onTypeClick = (feedback) => (event) => {
         console.log(feedback);
         this.props.dispatch({type: "COMMENTS", payload: feedback});
@@ -14,7 +24,7 @@ class CommentsPage extends Component {
         return(
         <div>
             <h1>Anything You'd Like To Say?</h1>
-            <input></input>
+            <input onChange={this.onInput('comments')}></input>
             <button onClick={this.onTypeClick('feelings')}>SUBMIT</button>
         </div>
         );
